@@ -1,0 +1,11 @@
+export const COLORS = {
+    WHITE:'#FFFFFF',
+    PINK01:'#FF82EC',
+    PINK02:'#3C0046',
+    PINK03:'#C12CAB',
+    BACKGROUND01:'#19061F',
+    BACKGROUND02:'#3C0046',
+    GRAY01:'#6F516A',
+    BLACK:'#000000',
+
+}
