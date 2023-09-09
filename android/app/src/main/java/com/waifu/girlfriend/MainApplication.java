@@ -1,4 +1,4 @@
-package com.awesomeproject;
+package com.waifu.girlfriend;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
