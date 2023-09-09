@@ -10,12 +10,12 @@ import DatePicker from 'react-native-date-picker'
 import { widthPercentageToDP } from "react-native-responsive-screen";
 import { Context } from "../../context.ts/context";
 import moment from "moment";
-const DateOfBirth = (props:any) => {
-    const {userData, setUserData} = useContext<any>(Context)
+const DateOfBirth = (props: any) => {
+    const { userData, setUserData } = useContext<any>(Context)
     const [date, setDate] = useState(new Date())
-    const SaveDate = (date:any) => {
+    const SaveDate = (date: any) => {
         let temp = userData
-        temp.dateOfBirth =  moment(date).format().toString().split('T')[0]
+        temp.dateOfBirth = moment(date).format().toString().split('T')[0]
         setUserData(temp)
         props.navigation.navigate('Interest')
     }
@@ -25,9 +25,11 @@ const DateOfBirth = (props:any) => {
                 <GlobalSubHeader text='2 - 4 ' backIcon={false} />
                 <Text style={styles.mainHeadingText}>What is your birthday</Text>
                 <Image resizeMode='contain' style={styles.lowOpacityImage} source={images.AIGIRL} />
-                <View style={[styles.subContainer, {alignItems:'center'}]}>
-                    <DatePicker style={{width:widthPercentageToDP(90)}} androidVariant="nativeAndroid" date={date} mode="date" textColor={COLORS.WHITE}  onDateChange={setDate}  />
-                    <MainButton onPress={()=>SaveDate(date)}  backgroundColor={COLORS.PINK01} text='Continue' textColor={COLORS.BLACK} />
+                <View style={[styles.subContainer, { alignItems: 'center' }]}>
+                    <DatePicker style={{ width: widthPercentageToDP(90) }} androidVariant="nativeAndroid" date={date} mode="date" textColor={COLORS.WHITE} onDateChange={setDate} />
+                    <View style={{width:'100%'}}>
+                        <MainButton onPress={() => SaveDate(date)} backgroundColor={COLORS.PINK01} text='Continue' textColor={COLORS.BLACK} />
+                    </View>
                 </View>
             </LinearGradient>
         </SafeAreaView>

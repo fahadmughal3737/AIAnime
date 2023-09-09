@@ -63,7 +63,9 @@ const Paywall = (props: any) => {
                     <TouchableOpacity style={{ marginVertical: '5%' }}>
                         <Text style={styles.footerTextStyle}>Terms & Conditions</Text>
                     </TouchableOpacity>
+                    <View style={{paddingHorizontal:'2.5%', width:'100%'}}>
                     <MainButton backgroundColor={COLORS.PINK01} text='Continue' textColor={COLORS.BLACK} />
+                    </View> 
                 </View>
             </LinearGradient>
         </SafeAreaView>

@@ -90,7 +90,7 @@ const AnimeFriend = (props: any) => {
                             ItemSeparatorComponent={() => <View style={{ width: normalize(16) }} />}
                         />
                     </View>
-                    <View style={{bottom:normalize(24)}}>
+                    <View style={{bottom:normalize(34), paddingHorizontal:'1%'}}>
                         <MainButton onPress={() => SaveFriend(selectedObject)} margin={'2.5%'} backgroundColor={COLORS.PINK01} textColor={COLORS.BLACK} text={'Continue'} />
                     </View>
                 </View>
