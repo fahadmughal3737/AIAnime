@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Text, TextInput, SafeAreaView, View, Image, TouchableOpacity } from 'react-native'
+import { Text, SafeAreaView, View, Image, TouchableOpacity } from 'react-native'
 import { styles } from "./style";
 import LinearGradient from "react-native-linear-gradient";
 import { COLORS } from "../../utils/colors";
@@ -10,7 +10,6 @@ import SmallButton from "../../components/buttons/smallButton";
 import { Context } from "../../context.ts/context";
 const Interest = (props:any) => {
     const {userData, setUserData} = useContext<any>(Context)
-    console.log('interest screen userdata', userData)
     const [options, setOptions] = useState([
         {
             name:'Astrology',

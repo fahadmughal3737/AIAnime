@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "690130253138",
+    "project_id": "anime-chat-b3f8e",
+    "storage_bucket": "anime-chat-b3f8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690130253138:android:22f74d50460d89d7cab68b",
+        "android_client_info": {
+          "package_name": "com.waifu.girlfriend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690130253138-su3g8mrrlnm8n5ua8d8n1bvjpnqbenr6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6JGJ5gEfgYKx4j--WKmrTZ01RtYf8vA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690130253138-su3g8mrrlnm8n5ua8d8n1bvjpnqbenr6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "690130253138-3ho7mn6547408dhanb147q3cl1d7s5no.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "app.waifu.girlfriend"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,20 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Text, SafeAreaView, View, Image, TouchableOpacity, ScrollView, FlatList } from 'react-native'
+import React, { useEffect, useState } from "react";
+import { Text, SafeAreaView, View, Image, TouchableOpacity, FlatList } from 'react-native'
 import { styles } from "./style";
 import LinearGradient from "react-native-linear-gradient";
 import { COLORS } from "../../utils/colors";
-import GlobalSubHeader from "../../components/headers/globalSubHeader";
 import MainButton from "../../components/buttons/mainButton";
 import { FontFamily, images } from "../../assets";
-import SmallButton from "../../components/buttons/smallButton";
-import { Context } from "../../context.ts/context";
 import GlobalHeader from "../../components/headers/globalHeader";
 import { normalize } from "../../utils/responsiveFont";
-import { widthPercentageToDP } from "react-native-responsive-screen";
 import Rectangle from "../../components/touchables/rectangle";
 import Purchases from "react-native-purchases/dist/purchases";
 const Paywall = (props: any) => {
-    const { userData, setUserData } = useContext<any>(Context)
     const [selectedPlan, setSelectedPlan] = useState({})
     const GetData = async () =>{
         try {
@@ -48,7 +43,7 @@ const Paywall = (props: any) => {
                 <Text style={[styles.mainHeadingText, { flex: 0.15, fontSize: normalize(40) }]}>Unlimited messaging with your girlfriend</Text>
                 <Image resizeMode='contain' style={[styles.lowOpacityImage, { top: '25%', opacity: 1 }]} source={images.AIGIRL} />
                 <View style={{ flex: 0.65, }}>
-                    <FlatList contentContainerStyle={{ alignItems: 'center', flex: 1, justifyContent: 'flex-end' }} data={data} renderItem={({ item }) => {
+                    <FlatList contentContainerStyle={styles.flatListContainerStyle} data={data} renderItem={({ item }) => {
                         return (
                             <Rectangle
                                 onPress={() => setSelectedPlan(item)}
@@ -63,9 +58,9 @@ const Paywall = (props: any) => {
                         )
                     }} />
                 </View>
-                <View style={{ flex: 0.2, justifyContent: 'center', alignItems: 'center' }}>
+                <View style={styles.friendScreenFooter}>
                     <TouchableOpacity style={{ marginVertical: '5%' }}>
-                        <Text style={{ color: COLORS.GRAY01, fontFamily: FontFamily.QUICKSAND_BOLD, fontSize: normalize(18) }}>Terms & Conditions</Text>
+                        <Text style={styles.footerTextStyle}>Terms & Conditions</Text>
                     </TouchableOpacity>
                     <MainButton backgroundColor={COLORS.PINK01} text='Continue' textColor={COLORS.BLACK} />
                 </View>

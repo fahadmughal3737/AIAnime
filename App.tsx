@@ -8,16 +8,14 @@ import { COLORS } from './src/utils/colors';
 import { Context } from './src/context.ts/context';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Purchases from 'react-native-purchases';
-
+import remoteConfig from '@react-native-firebase/remote-config';
 const Stack = createNativeStackNavigator();
 const App = () => {
   const [test, setTest] = useState<boolean>(false)
   const [load, setLoad] = useState<boolean>(true)
   const getData = async () => {
     await AsyncStorage.getItem('key').then((res: any) => {
-      console.log('res async app.tsx', res)
-      if (res===null || res===undefined)
-      { 
+      if (res === null || res === undefined) {
         null
       }
       else {
@@ -30,19 +28,32 @@ const App = () => {
         console.log('error app.tsx async catch', e)
       )
   };
-
   useEffect(() => {
     getData()
     if (Platform.OS === 'ios') {
-      Purchases.configure({apiKey: `it's gonna come here`});
-   }
-   else if (Platform.OS === 'android') {
-    Purchases.configure({apiKey: `it's gonna come here`});
-   
-   // OR: if building for Amazon, be sure to follow the installation instructions then:
-    // Purchases.configure({ apiKey: `it's gonna come here`, useAmazon: true });
- }
+      Purchases.configure({ apiKey: `it's gonna come here` });
+    }
+    else if (Platform.OS === 'android') {
+      Purchases.configure({ apiKey: `it's gonna come here` });
+
+    }
+    remoteConfig()
+    .setDefaults({
+      awesome_new_feature: 'disabled',
+    })
+    .then(() => remoteConfig().fetchAndActivate())
+    .then(fetchedRemotely => {
+      if (fetchedRemotely) {
+        console.log('Configs were retrieved from the backend and activated reem.', fetchedRemotely);
+      } else {
+        console.log(
+          'No configs were fetched from the backend, and the local configs were already activated',fetchedRemotely
+        );
+      }
+    });
   }, [])
+
+  
   const [userData, setUserData] = useState({
     nickname: '',
     interests: [],
@@ -73,10 +84,7 @@ const App = () => {
                 />
               </>
             }
-
-
           </Stack.Navigator>}
-
       </NavigationContainer>
     </Context.Provider>
   );

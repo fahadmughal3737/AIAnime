@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Text, SafeAreaView, FlatList, Image, View, } from 'react-native'
 import { styles } from "./style";
 import LinearGradient from "react-native-linear-gradient";
@@ -10,17 +10,18 @@ import SmallButton from "../../components/buttons/smallButton";
 import Card from "../../components/touchables/card";
 import { Context } from "../../context.ts/context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-const AnimeFriend = (props:any) => {
+import remoteConfig from '@react-native-firebase/remote-config';
+const AnimeFriend = (props: any) => {
     const [girls, setGirls] = useState(true)           // state to show flatlist of either boys or girls
-    const {userData, setUserData} = useContext<any>(Context)
-    const genderSetter = (girl:boolean)=> {
-        if(girl===true)
-        {   
+    const { userData, setUserData } = useContext<any>(Context)
+    const parameters :any = remoteConfig().getAll()
+    const genderSetter = (girl: boolean) => {
+        if (girl === true) {
             setGirls(true)
-            setSelectedObject({img: images.AIGIRLSMALL })
+            setSelectedObject({ img: images.AIGIRLSMALL })
         }
-        else{
-            setSelectedObject({img: images.AIBOYSMALL })
+        else {
+            setSelectedObject({ img: images.AIBOYSMALL })
             setGirls(false)
         }
     }
@@ -51,17 +52,21 @@ const AnimeFriend = (props:any) => {
         },
     ])
     const [selectedObject, setSelectedObject] = useState({
-        img: girls? images.AIGIRLSMALL : images.AIBOYSMALL
+        img: girls ? images.AIGIRLSMALL : images.AIBOYSMALL
     },)
-    const SaveFriend = async (friend:any) => {
+    const SaveFriend = async (friend: any) => {
         let temp = userData
         temp.animeFriend = friend
         setUserData(temp)
         const value = JSON.stringify(userData)
         await AsyncStorage.setItem('key', value);
-        props.navigation.navigate('OnboardNotification') //to be changed according to remoteconfig
+        if (parameters.isNotificationScreenShown._value ===true) {
+            props.navigation.navigate('OnboardNotification')
+        }
+        else {
+            props.navigation.navigate('PaywallStack')
+        }
     }
-   
     return (
         <SafeAreaView style={styles.mainContainer}>
             <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02]} style={styles.container}>
@@ -74,16 +79,15 @@ const AnimeFriend = (props:any) => {
                             <SmallButton onPress={() => genderSetter(false)} text={'Boys'} backgroundColor={girls ? COLORS.PINK02 : COLORS.PINK03} />
                         </View>
                     </View>
-                    <Image resizeMode='cover' style={{ flex: 0.5, width:'100%', alignSelf:'center', }} source={selectedObject.img} />
-                    <View style={{ flex: 0.2, bottom:'2.5%', }}>
-                        <FlatList style={{marginRight:'2.5%'}} showsHorizontalScrollIndicator={false} horizontal={true} data={girls?girlsData:boysData} renderItem={({ item }) => {
-                            console.log('itm', item)
+                    <Image resizeMode='cover' style={{ flex: 0.5, width: '100%', alignSelf: 'center', }} source={selectedObject.img} />
+                    <View style={{ flex: 0.2, bottom: '2.5%', }}>
+                        <FlatList style={{ marginRight: '2.5%' }} showsHorizontalScrollIndicator={false} horizontal={true} data={girls ? girlsData : boysData} renderItem={({ item }) => {
                             return (
-                                    <Card onPress={()=>setSelectedObject(item)} image={item.img} backgroundColor={selectedObject.img===item.img ? COLORS.PINK03:COLORS.PINK02} />
+                                <Card onPress={() => setSelectedObject(item)} image={item.img} backgroundColor={selectedObject.img === item.img ? COLORS.PINK03 : COLORS.PINK02} />
                             )
                         }} />
                     </View>
-                    <MainButton onPress={()=>SaveFriend(selectedObject)} margin={'2.5%'} backgroundColor={COLORS.PINK01} textColor={COLORS.BLACK} text={'Continue'} />
+                    <MainButton onPress={() => SaveFriend(selectedObject)} margin={'2.5%'} backgroundColor={COLORS.PINK01} textColor={COLORS.BLACK} text={'Continue'} />
                 </View>
             </LinearGradient>
         </SafeAreaView>
