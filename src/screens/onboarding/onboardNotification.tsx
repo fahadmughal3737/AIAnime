@@ -27,7 +27,7 @@ const OnboardNotification = (props:any) => {
       },[])
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02]} style={styles.container}>
+            <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02, COLORS.BLACK]} style={styles.container}>
                 <GlobalSubHeader onPress={()=>props.navigation.goBack()} backIcon={true} />
                 <Text style={styles.mainHeadingText}>Stay Connected with AI Anime Friends</Text>
                 <Image resizeMode='contain' style={[styles.lowOpacityImage,{top:'25%', opacity:0.5}]} source={images.AIGIRL} />

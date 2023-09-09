@@ -70,7 +70,7 @@ const AnimeFriend = (props: any) => {
     }
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02]} style={styles.container}>
+            <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02, COLORS.BLACK]} style={styles.container}>
                 <GlobalSubHeader text='4 - 4 ' backIcon={true} />
                 <View style={styles.innerContainer}>
                     <View style={{ flex: 0.3, }}>

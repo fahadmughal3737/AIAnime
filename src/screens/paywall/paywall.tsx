@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, SafeAreaView, View, Image, TouchableOpacity, FlatList } from 'react-native'
+import { Text, SafeAreaView, View, Image, TouchableOpacity, StatusBar, FlatList } from 'react-native'
 import { styles } from "./style";
 import LinearGradient from "react-native-linear-gradient";
 import { COLORS } from "../../utils/colors";
@@ -11,7 +11,7 @@ import Rectangle from "../../components/touchables/rectangle";
 import Purchases from "react-native-purchases/dist/purchases";
 const Paywall = (props: any) => {
     const [selectedPlan, setSelectedPlan] = useState({})
-    const GetData = async () =>{
+    const GetData = async () => {
         try {
             const offerings = await Purchases.getOfferings();
             if (offerings.current !== null) {
@@ -19,9 +19,9 @@ const Paywall = (props: any) => {
                 console.log('try offerings fetch', offerings.current)
             }
         } catch (e) {
-          console.log('e', e)
+            console.log('e', e)
         }
-    } 
+    }
     useEffect(() => {
         GetData()
     }, [])
@@ -32,14 +32,14 @@ const Paywall = (props: any) => {
         {
             key: 2
         },
-        
+
     ])
     return (
         <SafeAreaView style={styles.mainContainer}>
-            <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02]} style={styles.container}>
-                <GlobalHeader  />
-                <Text style={[styles.mainHeadingText, { flex: 0.15, width:'75%', alignSelf:'center', fontSize: normalize(20) }]}>Unlimited messaging with your girlfriend</Text>
-                <Image resizeMode='contain' style={[styles.lowOpacityImage, { top: '18%',width:'70%',  opacity: 1 }]} source={images.AIGIRL} />
+            <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02, COLORS.BLACK]} style={styles.container}>
+                <GlobalHeader />
+                <Text style={[styles.mainHeadingText, { flex: 0.15, width: '75%', alignSelf: 'center', fontSize: normalize(20) }]}>Unlimited messaging with your girlfriend</Text>
+                <Image resizeMode='contain' style={[styles.lowOpacityImage, { top: '18%', width: '70%', opacity: 1 }]} source={images.AIGIRL} />
                 <View style={{ flex: 0.65, }}>
                     <FlatList contentContainerStyle={styles.flatListContainerStyle} data={data} renderItem={({ item }) => {
                         return (
@@ -54,7 +54,10 @@ const Paywall = (props: any) => {
                                 borderColor={COLORS.PINK01}
                                 backgroundColor={selectedPlan === item ? COLORS.PINK03 : COLORS.PINK02} />
                         )
-                    }} />
+                    }}
+                    ItemSeparatorComponent={() => <View style={{ width: normalize(24) }} />}
+ 
+                    />
                 </View>
                 <View style={styles.friendScreenFooter}>
                     <TouchableOpacity style={{ marginVertical: '5%' }}>
