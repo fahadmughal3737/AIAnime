@@ -5,7 +5,7 @@ import { COLORS } from '../../utils/colors'
 import { normalize } from '../../utils/responsiveFont'
 import { FontFamily } from '../../assets'
 export const styles = StyleSheet.create({
-    cardStyle: { height: heightPercentageToDP(12), borderRadius: normalize(30), padding: '5%', alignItems: 'center', justifyContent: 'center', borderColor: COLORS.PINK01, borderWidth: 2, marginHorizontal: normalize(10), width: widthPercentageToDP(30), },
+    cardStyle: { height: normalize(89), borderRadius: normalize(30), padding: '5%', alignItems: 'center', justifyContent: 'center', borderColor: COLORS.PINK01, borderWidth: 2,  width: normalize(89), },
     smallText: { fontFamily: FontFamily.QUICKSAND_BOLD, color: COLORS.WHITE, fontSize: normalize(20) },
     rectangleStyle: {
         width: widthPercentageToDP(90),

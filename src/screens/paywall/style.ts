@@ -11,11 +11,11 @@ export const styles = StyleSheet.create({
         padding:'2.5%',
         opacity:1
     },
-    lowOpacityImage:{ position: 'absolute', height: '60%', opacity: 0.2, top: '35%' },
+    lowOpacityImage:{ position: 'absolute', height: '60%', opacity: 0.2, top: '35%', alignSelf:'center' },
     subContainer:{ flex:0.6,  paddingVertical:'10%', padding:'2.5%', justifyContent:'space-between'  },
     buttonsContainer:{ flexDirection:'row', justifyContent:'space-between',  flexWrap:'wrap', flex:0.9},
     innerContainer:{ flex: 1, justifyContent: 'space-between' },
-    footerTextStyle:{ color: COLORS.GRAY01, fontFamily: FontFamily.QUICKSAND_BOLD, fontSize: normalize(18) },
+    footerTextStyle:{ color: COLORS.GRAY01, fontFamily: FontFamily.QUICKSAND_BOLD, fontSize: normalize(14) },
     horizontalBtnContainer:{ flexDirection: 'row', marginVertical: '5%', flex: 0.4, justifyContent: 'space-between' },
     friendScreenFooter:{ flex: 0.2, justifyContent: 'center', alignItems: 'center' },
     flatListContainerStyle:{ alignItems: 'center', flex: 1, justifyContent: 'flex-end' },

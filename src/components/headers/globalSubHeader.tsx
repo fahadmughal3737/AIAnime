@@ -10,7 +10,7 @@ const GlobalSubHeader = (props: any) => {
     <View style={styles.globalSubHeader}>
       {props.backIcon ?
         <TouchableOpacity onPress={props.onPress} style={styles.leftIconStyle}>
-          <Icon type='material' name='keyboard-arrow-left' size={normalize(30)} color={COLORS.WHITE} />
+          <Icon type='material' name='keyboard-arrow-left' size={normalize(45)} color={COLORS.WHITE} />
         </TouchableOpacity>
         :
         null

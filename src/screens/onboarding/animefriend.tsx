@@ -11,10 +11,11 @@ import Card from "../../components/touchables/card";
 import { Context } from "../../context.ts/context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import remoteConfig from '@react-native-firebase/remote-config';
+import { normalize } from "../../utils/responsiveFont";
 const AnimeFriend = (props: any) => {
     const [girls, setGirls] = useState(true)           // state to show flatlist of either boys or girls
     const { userData, setUserData } = useContext<any>(Context)
-    const parameters :any = remoteConfig().getAll()
+    const parameters: any = remoteConfig().getAll()
     const genderSetter = (girl: boolean) => {
         if (girl === true) {
             setGirls(true)
@@ -60,7 +61,7 @@ const AnimeFriend = (props: any) => {
         setUserData(temp)
         const value = JSON.stringify(userData)
         await AsyncStorage.setItem('key', value);
-        if (parameters.isNotificationScreenShown._value ===true) {
+        if (parameters.isNotificationScreenShown._value === true) {
             props.navigation.navigate('OnboardNotification')
         }
         else {
@@ -70,7 +71,7 @@ const AnimeFriend = (props: any) => {
     return (
         <SafeAreaView style={styles.mainContainer}>
             <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02]} style={styles.container}>
-                <GlobalSubHeader text='4 - 4 ' backIcon={false} />
+                <GlobalSubHeader text='4 - 4 ' backIcon={true} />
                 <View style={styles.innerContainer}>
                     <View style={{ flex: 0.3, }}>
                         <Text style={[styles.mainHeadingText, { flex: 0.6, }]}>Choose your Dream Anime Friend</Text>
@@ -81,13 +82,17 @@ const AnimeFriend = (props: any) => {
                     </View>
                     <Image resizeMode='cover' style={{ flex: 0.5, width: '100%', alignSelf: 'center', }} source={selectedObject.img} />
                     <View style={{ flex: 0.2, bottom: '2.5%', }}>
-                        <FlatList style={{ marginRight: '2.5%' }} showsHorizontalScrollIndicator={false} horizontal={true} data={girls ? girlsData : boysData} renderItem={({ item }) => {
+                        <FlatList style={{}} showsHorizontalScrollIndicator={false} horizontal={true} data={girls ? girlsData : boysData} renderItem={({ item }) => {
                             return (
                                 <Card onPress={() => setSelectedObject(item)} image={item.img} backgroundColor={selectedObject.img === item.img ? COLORS.PINK03 : COLORS.PINK02} />
                             )
-                        }} />
+                        }}
+                            ItemSeparatorComponent={() => <View style={{ width: normalize(16) }} />}
+                        />
                     </View>
-                    <MainButton onPress={() => SaveFriend(selectedObject)} margin={'2.5%'} backgroundColor={COLORS.PINK01} textColor={COLORS.BLACK} text={'Continue'} />
+                    <View style={{bottom:normalize(24)}}>
+                        <MainButton onPress={() => SaveFriend(selectedObject)} margin={'2.5%'} backgroundColor={COLORS.PINK01} textColor={COLORS.BLACK} text={'Continue'} />
+                    </View>
                 </View>
             </LinearGradient>
         </SafeAreaView>

@@ -32,16 +32,14 @@ const Paywall = (props: any) => {
         {
             key: 2
         },
-        {
-            key: 3
-        }
+        
     ])
     return (
         <SafeAreaView style={styles.mainContainer}>
             <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02]} style={styles.container}>
-                <GlobalHeader />
-                <Text style={[styles.mainHeadingText, { flex: 0.15, fontSize: normalize(40) }]}>Unlimited messaging with your girlfriend</Text>
-                <Image resizeMode='contain' style={[styles.lowOpacityImage, { top: '25%', opacity: 1 }]} source={images.AIGIRL} />
+                <GlobalHeader  />
+                <Text style={[styles.mainHeadingText, { flex: 0.15, width:'75%', alignSelf:'center', fontSize: normalize(20) }]}>Unlimited messaging with your girlfriend</Text>
+                <Image resizeMode='contain' style={[styles.lowOpacityImage, { top: '18%',width:'70%',  opacity: 1 }]} source={images.AIGIRL} />
                 <View style={{ flex: 0.65, }}>
                     <FlatList contentContainerStyle={styles.flatListContainerStyle} data={data} renderItem={({ item }) => {
                         return (

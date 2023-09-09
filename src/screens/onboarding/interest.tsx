@@ -71,7 +71,7 @@ const Interest = (props:any) => {
                 <GlobalSubHeader text='3 - 4 ' backIcon={true} />
                 <Text style={[styles.mainHeadingText, {flex:0.15, }]}>What are your Interests</Text>
                 <Image resizeMode='contain' style={styles.lowOpacityImage} source={images.AIGIRL} />
-                <View style={[styles.subContainer, {flex:0.85}]}>
+                <View style={[styles.subContainer, {flex:0.85, }]}>
                     <View style={styles.buttonsContainer}>
                         {options.map((data:any)=>{
                             return (
