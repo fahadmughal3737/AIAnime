@@ -63,9 +63,7 @@ const App = () => {
   return (
     <Context.Provider value={{ userData, setUserData }} >
       <StatusBar animated={true} backgroundColor={COLORS.BACKGROUND01} barStyle={'light-content'} />
-
       <NavigationContainer>
-
         {load ? <View style={{ flex: 1, justifyContent: 'center' }}><ActivityIndicator size={'large'} color={COLORS.PINK02} /></View> :
           <Stack.Navigator screenOptions={{ animation: "slide_from_right" }}>
             {test ? <Stack.Screen

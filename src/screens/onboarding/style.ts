@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
     },
     container:{
         flex:1,
-        opacity:1
+        opacity:1,
+        padding:'2.5%'
     },
     lowOpacityImage:{ position: 'absolute', height: '60%', opacity: 0.2, top: '35%' },
     subContainer:{ flex:0.6,  width:'90%',alignSelf:'center',  paddingVertical:'10%', justifyContent:'space-between'  },

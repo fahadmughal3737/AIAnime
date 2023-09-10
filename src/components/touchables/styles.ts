@@ -17,15 +17,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         padding: '2.5%',
         paddingHorizontal: '2.5%',
-        shadowColor: COLORS.PINK01,
-        shadowOffset: {
-            width: 0,
-            height: 12,
-        },
-        shadowOpacity: 0.58,
-        shadowRadius: 16.00,
-
-        elevation: 2.5,
     },
     savingHeadingText: { fontSize: normalize(24), fontFamily: FontFamily.QUICKSAND_BOLD, color: COLORS.WHITE },
     savePercentageAmountStyle: { fontSize: normalize(32), marginLeft: normalize(10), },
