@@ -1,13 +1,12 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Text, TextInput, SafeAreaView, View, Image } from 'react-native'
+import React, {  useEffect } from "react";
+import { Text,  View, Image } from 'react-native'
 import { styles } from "./style";
 import LinearGradient from "react-native-linear-gradient";
 import { COLORS } from "../../utils/colors";
 import GlobalSubHeader from "../../components/headers/globalSubHeader";
 import MainButton from "../../components/buttons/mainButton";
-import { FontFamily, images } from "../../assets";
-import { normalize } from "../../utils/responsiveFont";
-import { Context } from "../../context.ts/context";
+import { images } from "../../assets";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const OnboardNotification = (props:any) => {
     var jsonValue
@@ -26,7 +25,7 @@ const OnboardNotification = (props:any) => {
         )
       },[])
     return (
-        <SafeAreaView style={styles.mainContainer}>
+        <View style={styles.mainContainer}>
             <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02, COLORS.BLACK]} style={styles.container}>
                 <GlobalSubHeader onPress={()=>props.navigation.goBack()} backIcon={true} />
                 <Text style={styles.mainHeadingText}>Stay Connected with AI Anime Friends</Text>
@@ -36,7 +35,7 @@ const OnboardNotification = (props:any) => {
                     <MainButton onPress={()=>props.navigation.navigate('PaywallStack')} backgroundColor={COLORS.PINK01} text='Continue' textColor={COLORS.BLACK} />
                 </View>
             </LinearGradient>
-        </SafeAreaView>
+        </View>
     )
 }
 export default OnboardNotification;

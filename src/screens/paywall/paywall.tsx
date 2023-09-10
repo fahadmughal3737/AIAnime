@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, SafeAreaView, View, Image, TouchableOpacity, StatusBar, FlatList } from 'react-native'
+import { Text, View, Image, TouchableOpacity, StatusBar, FlatList } from 'react-native'
 import { styles } from "./style";
 import LinearGradient from "react-native-linear-gradient";
 import { COLORS } from "../../utils/colors";
@@ -35,7 +35,7 @@ const Paywall = (props: any) => {
 
     ])
     return (
-        <SafeAreaView style={styles.mainContainer}>
+        <View style={styles.mainContainer}>
             <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02, COLORS.BLACK]} style={styles.container}>
                 <GlobalHeader />
                 <Text style={[styles.mainHeadingText, { flex: 0.15, width: '75%', alignSelf: 'center', fontSize: normalize(20) }]}>Unlimited messaging with your girlfriend</Text>
@@ -68,7 +68,7 @@ const Paywall = (props: any) => {
                     </View> 
                 </View>
             </LinearGradient>
-        </SafeAreaView>
+        </View>
     )
 }
 export default Paywall;

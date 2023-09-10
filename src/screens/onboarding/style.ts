@@ -17,5 +17,5 @@ export const styles = StyleSheet.create({
     horizontalBtnContainer:{ flexDirection: 'row',  marginVertical: '5%', flex: 0.4, justifyContent: 'space-between' },
     mainHeadingText:{ color: COLORS.WHITE, flex:0.4, width:'75%', alignSelf:'center',  marginTop:'5%', textAlign:'center',fontFamily:FontFamily.QUICKSAND_SEMIBOLD, fontSize: normalize(32),  },
     smallText:{fontFamily:FontFamily.QUICKSAND_BOLD, bottom:'20%', textAlign:'center', color:COLORS.WHITE, fontSize:normalize(30)},
-    mainTextInput:{borderBottomColor:COLORS.PINK01, borderBottomWidth:1, color:COLORS.WHITE, fontFamily:FontFamily.QUICKSAND_BOLD, fontSize:normalize(20)}
+    mainTextInput:{borderBottomColor:COLORS.PINK01, borderBottomWidth:1, color:COLORS.WHITE, fontFamily:FontFamily.QUICKSAND_BOLD, paddingHorizontal:'2.5%', fontSize:normalize(20)}
 })

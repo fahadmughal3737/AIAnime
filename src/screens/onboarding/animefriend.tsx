@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Text, SafeAreaView, FlatList, Image, View, } from 'react-native'
+import { Text, FlatList, Image, View, } from 'react-native'
 import { styles } from "./style";
 import LinearGradient from "react-native-linear-gradient";
 import { COLORS } from "../../utils/colors";
@@ -69,7 +69,7 @@ const AnimeFriend = (props: any) => {
         }
     }
     return (
-        <SafeAreaView style={styles.mainContainer}>
+        <View style={styles.mainContainer}>
             <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02, COLORS.BLACK]} style={styles.container}>
                 <GlobalSubHeader text='4 - 4 ' backIcon={true} />
                 <View style={styles.innerContainer}>
@@ -95,7 +95,7 @@ const AnimeFriend = (props: any) => {
                     </View>
                 </View>
             </LinearGradient>
-        </SafeAreaView>
+        </View>
     )
 }
 export default AnimeFriend;

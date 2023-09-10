@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Text, SafeAreaView, View, Image } from 'react-native'
+import { Text, View, Image } from 'react-native'
 import { styles } from "./style";
 import LinearGradient from "react-native-linear-gradient";
 import { COLORS } from "../../utils/colors";
@@ -20,7 +20,7 @@ const DateOfBirth = (props: any) => {
         props.navigation.navigate('Interest')
     }
     return (
-        <SafeAreaView style={styles.mainContainer}>
+        <View style={styles.mainContainer}>
             <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02]} style={styles.container}>
                 <GlobalSubHeader text='2 - 4 ' backIcon={false} />
                 <Text style={styles.mainHeadingText}>What is your birthday</Text>
@@ -32,7 +32,7 @@ const DateOfBirth = (props: any) => {
                     </View>
                 </View>
             </LinearGradient>
-        </SafeAreaView>
+        </View>
     )
 }
 export default DateOfBirth;

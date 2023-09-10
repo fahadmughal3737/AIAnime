@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Text, SafeAreaView, View, Image, TouchableOpacity } from 'react-native'
+import { Text, View, Image, TouchableOpacity } from 'react-native'
 import { styles } from "./style";
 import LinearGradient from "react-native-linear-gradient";
 import { COLORS } from "../../utils/colors";
@@ -66,7 +66,7 @@ const Interest = (props:any) => {
         props.navigation.navigate('AnimeFriend')
     }
     return (
-        <SafeAreaView style={styles.mainContainer}>
+        <View style={styles.mainContainer}>
             <LinearGradient colors={[COLORS.BACKGROUND01, COLORS.BACKGROUND02]} style={styles.container}>
                 <GlobalSubHeader text='3 - 4 ' backIcon={true} />
                 <Text style={[styles.mainHeadingText, {flex:0.15, }]}>What are your Interests</Text>
@@ -87,7 +87,7 @@ const Interest = (props:any) => {
                     <MainButton onPress={()=>SaveInterests(selectedOptions)} disabled={selectedOptions.length===0?true:false} backgroundColor={COLORS.PINK01} text='Continue' textColor={COLORS.BLACK} />
                 </View>
             </LinearGradient>
-        </SafeAreaView>
+        </View>
     )
 }
 export default Interest;
